@@ -57,11 +57,12 @@ if not retvalL and retvalR:
     exit()
 
 #Calibrate the stereo Pair
-flags = cv2.CALIB_FIX_FOCAL_LENGTH 
+flags = cv2.CALIB_FIX_INTRINSIC  
 retval , M1, D1, M2, D2, R, T, E, F = cv2.stereoCalibrate(object_points, image_points_L, image_points_R, M1, D1, M2, D2, image_sizes[0], flags)
 
 #Rectification
-R1, R2, P1, P2, Q, ROI1, ROI2 = cv2.stereoRectify(M1,D1,M2,D2, image_sizes[0], R,T)
+flags = cv2.CALIB_ZERO_DISPARITY
+R1, R2, P1, P2, Q, ROI1, ROI2 = cv2.stereoRectify(M1,D1,M2,D2, image_sizes[0], R,T, flags)
 
 
 #Create a map which we can use to recfy images
