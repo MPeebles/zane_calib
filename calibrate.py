@@ -14,7 +14,7 @@ print(right_paths)
 #Setup corresponding points for calibration
 chessboard_size = (8,6)
 cell_size = 60 #mm
-termination_criteria = criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 50, 0.1)
+termination_criteria = criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 50, 0.01)
 
 image_points_L = []
 image_points_R = []
@@ -90,7 +90,7 @@ for left_path, right_path in zip(left_paths,right_paths):
     cv2.imshow("Normal",norma_concat)
     cv2.imshow("Rectified",rect_concat)
     cv2.waitKey(0)
-    cv2.destroyAllWindows
+    cv2.destroyAllWindows()
 
 
 
