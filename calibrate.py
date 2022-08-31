@@ -51,7 +51,6 @@ for left_path, right_path in zip(left_paths,right_paths):
 print(object_points)
 print("=================")
 print(image_points_L)
-input("")
 #Calibrate left camera for initial intrinsics
 retvalL, M1, D1, rvec1, tvec1 = cv2.calibrateCamera(object_points, image_points_L, image_sizes[0], None, None)
 retvalR, M2, D2, rvec2, tvec2 = cv2.calibrateCamera(object_points, image_points_R, image_sizes[1], None, None)
